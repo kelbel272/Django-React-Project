@@ -1,0 +1,17 @@
+// Sets up Babel loader 
+{
+    "presets": [
+      [
+        "@babel/preset-env",
+        {
+          "targets": {
+            "node": "10"
+          }
+        }
+      ],
+      "@babel/preset-react"
+    ],
+
+    // Used for async and await 
+    "plugins": ["@babel/plugin-proposal-class-properties"]
+  }

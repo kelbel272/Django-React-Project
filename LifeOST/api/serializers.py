@@ -1,0 +1,25 @@
+# Takes all python related code and translates Room to json response 
+
+from rest_framework import serializers 
+from .models import Room
+
+class RoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = ('id', 'code', 'host', 'guest_can_pause', 
+                'votes_to_skip', 'created_at')
+
+# Send a POST request to the endpoint 
+class CreateRoomSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Room
+        fields = ('guest_can_pause', 'votes_to_skip')
+
+
+class UpdateRoomSerializer(serializers.ModelSerializer):
+    code = serializers.CharField(validators=[])
+    
+
+    class Meta:
+        model = Room
+        fields = ('guest_can_pause', 'votes_to_skip', 'code')
